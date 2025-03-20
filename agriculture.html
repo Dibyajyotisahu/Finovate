@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #228B22;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #006400;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showGraph('agriGDPChart')">Agriculture GDP Contribution</a>
+        <a onclick="showGraph('cropProductionChart')">Crop Production</a>
+        <a onclick="showGraph('irrigationChart')">Irrigation Coverage</a>
+        <a onclick="showGraph('subsidyChart')">Government Subsidies</a>
+    </div>
+
+    <div class="content">
+        <canvas id="agriGDPChart"></canvas>
+        <canvas id="cropProductionChart" style="display:none;"></canvas>
+        <canvas id="irrigationChart" style="display:none;"></canvas>
+        <canvas id="subsidyChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none"; 
+            });
+            document.getElementById(chartId).style.display = "block"; 
+        }
+
+        new Chart(document.getElementById("agriGDPChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Agriculture GDP Contribution (% of GDP)",
+                    data: [15.5, 16.0, 16.4, 16.8, 17.1, 17.5],
+                    borderColor: "green",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("cropProductionChart"), {
+            type: "bar",
+            data: {
+                labels: ["Rice", "Wheat", "Maize", "Soybean", "Sugarcane"],
+                datasets: [{
+                    label: "Crop Production (Million Tons)",
+                    data: [100, 95, 85, 60, 120],
+                    backgroundColor: "#8B4513"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("irrigationChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Irrigation Coverage (% of Agricultural Land)",
+                    data: [50, 52, 55, 58, 60, 63],
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("subsidyChart"), {
+            type: "pie",
+            data: {
+                labels: ["Fertilizer", "Machinery", "Irrigation", "Research", "Others"],
+                datasets: [{
+                    label: "Government Subsidies Allocation",
+                    data: [35, 25, 15, 20, 5], 
+                    backgroundColor: ["green", "yellow", "blue", "red", "purple"]
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a onclick="showGraph('gdpChart')">GDP</a>
+        <a onclick="showGraph('inflationChart')">Inflation</a>
+        <a onclick="showGraph('tradeChart')">Import & Export</a>
+        <a onclick="showGraph('budgetChart')">Budget Allocation</a>
+    </div>
+
+    <!-- Graph Container -->
+    <div class="content">
+        <canvas id="gdpChart"></canvas>
+        <canvas id="inflationChart" style="display:none;"></canvas>
+        <canvas id="tradeChart" style="display:none;"></canvas>
+        <canvas id="budgetChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none"; 
+            });
+            document.getElementById(chartId).style.display = "block"; 
+        }
+
+        // GDP Chart
+        new Chart(document.getElementById("gdpChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "GDP (Trillion $)",
+                    data: [2.7, 2.9, 2.6, 3.1, 3.3, 3.5],
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Inflation Chart
+        new Chart(document.getElementById("inflationChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Inflation Rate (%)",
+                    data: [4.5, 3.7, 6.2, 5.9, 4.8, 4.3],
+                    backgroundColor: "red"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Import & Export Chart
+        new Chart(document.getElementById("tradeChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [
+                    {
+                        label: "Imports (INR Billion)",
+                        data: [4000, 4200, 3900, 4500, 4700, 4900],
+                        borderColor: "green",
+                        fill: false
+                    },
+                    {
+                        label: "Exports (INR Billion)",
+                        data: [3500, 3700, 3400, 4000, 4200, 4600],
+                        borderColor: "orange",
+                        fill: false
+                    }
+                ]
+            },
+            options: { responsive: true }
+        });
+
+        // Budget Allocation Chart
+        new Chart(document.getElementById("budgetChart"), {
+            type: "pie",
+            data: {
+                labels: ["Education", "Health", "Defense", "Infrastructure", "Others"],
+                datasets: [{
+                    label: "Budget Allocation",
+                    data: [20, 15, 25, 30, 10], // Percentage distribution
+                    backgroundColor: ["blue", "green", "red", "yellow", "purple"]
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism & Culture Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showGraph('ftaChart')">Foreign Tourist Arrivals</a>
+        <a onclick="showGraph('revenueChart')">Tourism Revenue</a>
+        <a onclick="showGraph('employmentChart')">Employment in Tourism</a>
+        <a onclick="showGraph('budgetChart')">Cultural Heritage Budget</a>
+    </div>
+
+    <div class="content">
+        <canvas id="ftaChart"></canvas>
+        <canvas id="revenueChart" style="display:none;"></canvas>
+        <canvas id="employmentChart" style="display:none;"></canvas>
+        <canvas id="budgetChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none"; 
+            });
+            document.getElementById(chartId).style.display = "block"; 
+        }
+
+        new Chart(document.getElementById("ftaChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Foreign Tourist Arrivals (in millions)",
+                    data: [10.5, 11.2, 4.3, 6.7, 8.9, 12.1],
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("revenueChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Revenue from Tourism (in billion USD)",
+                    data: [25, 27, 12, 18, 22, 30],
+                    backgroundColor: "green"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("employmentChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Employment in Tourism Sector (millions)",
+                    data: [45, 47, 35, 40, 43, 50],
+                    borderColor: "orange",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("budgetChart"), {
+            type: "pie",
+            data: {
+                labels: ["Heritage Sites", "Museums", "Festivals & Events", "Tourism Promotion", "Others"],
+                datasets: [{
+                    label: "Budget Allocation (%)",
+                    data: [30, 20, 15, 25, 10], 
+                    backgroundColor: ["blue", "green", "red", "yellow", "purple"]
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>

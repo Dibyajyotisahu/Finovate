@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Development Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showGraph('ruralInfrastructureChart')">Rural Infrastructure</a>
+        <a onclick="showGraph('employmentRateChart')">Employment Rate</a>
+        <a onclick="showGraph('povertyReductionChart')">Poverty Reduction</a>
+        <a onclick="showGraph('budgetAllocationChart')">Budget Allocation</a>
+    </div>
+
+    <div class="content">
+        <canvas id="ruralInfrastructureChart"></canvas>
+        <canvas id="employmentRateChart" style="display:none;"></canvas>
+        <canvas id="povertyReductionChart" style="display:none;"></canvas>
+        <canvas id="budgetAllocationChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none";
+            });
+            document.getElementById(chartId).style.display = "block";
+        }
+
+        new Chart(document.getElementById("ruralInfrastructureChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Rural Infrastructure Spending (in billion Rs.)",
+                    data: [20, 25, 30, 35, 40, 50],
+                    backgroundColor: "blue"
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("employmentRateChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Rural Employment Rate (%)",
+                    data: [50, 52, 54, 57, 60, 63],
+                    borderColor: "green",
+                    fill: false
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("povertyReductionChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Poverty Reduction (%)",
+                    data: [30, 28, 25, 22, 20, 18],
+                    borderColor: "red",
+                    fill: false
+                }]
+            }
+        });
+
+        new Chart(document.getElementById("budgetAllocationChart"), {
+            type: "pie",
+            data: {
+                labels: ["Agriculture", "Infrastructure", "Education", "Healthcare", "Others"],
+                datasets: [{
+                    label: "Budget Allocation",
+                    data: [25, 30, 20, 15, 10],
+                    backgroundColor: ["blue", "green", "red", "yellow", "purple"]
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

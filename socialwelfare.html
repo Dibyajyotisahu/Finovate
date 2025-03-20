@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Welfare Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showGraph('povertyRateChart')">Poverty Rate</a>
+        <a onclick="showGraph('unemploymentRateChart')">Unemployment Rate</a>
+        <a onclick="showGraph('socialExpenditureChart')">Social Welfare Expenditure</a>
+        <a onclick="showGraph('homelessRateChart')">Homelessness Rate</a>
+    </div>
+
+    <div class="content">
+        <canvas id="povertyRateChart"></canvas>
+        <canvas id="unemploymentRateChart" style="display:none;"></canvas>
+        <canvas id="socialExpenditureChart" style="display:none;"></canvas>
+        <canvas id="homelessRateChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none";
+            });
+            document.getElementById(chartId).style.display = "block";
+        }
+
+        function generateRandomData(min, max, length) {
+            return Array.from({ length }, () => (Math.random() * (max - min) + min).toFixed(2));
+        }
+
+        new Chart(document.getElementById("povertyRateChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Poverty Rate (%)",
+                    data: generateRandomData(10, 30, 6),
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("unemploymentRateChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Unemployment Rate (%)",
+                    data: generateRandomData(5, 15, 6),
+                    backgroundColor: "green"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("socialExpenditureChart"), {
+            type: "pie",
+            data: {
+                labels: ["Healthcare Aid", "Food Assistance", "Housing", "Education Grants", "Others"],
+                datasets: [{
+                    label: "Budget Allocation",
+                    data: generateRandomData(10, 40, 5),
+                    backgroundColor: ["blue", "green", "red", "yellow", "purple"]
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("homelessRateChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Homelessness Rate (%)",
+                    data: generateRandomData(2, 8, 6),
+                    borderColor: "orange",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>

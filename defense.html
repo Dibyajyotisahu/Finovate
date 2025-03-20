@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defense Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #444;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a onclick="showGraph('defenseBudgetChart')">Defense Budget</a>
+        <a onclick="showGraph('militaryPersonnelChart')">Military Personnel</a>
+        <a onclick="showGraph('armsTradeChart')">Arms Trade</a>
+        <a onclick="showGraph('rndInvestmentChart')">R&D Investment</a>
+    </div>
+
+    <div class="content">
+        <canvas id="defenseBudgetChart"></canvas>
+        <canvas id="militaryPersonnelChart" style="display:none;"></canvas>
+        <canvas id="armsTradeChart" style="display:none;"></canvas>
+        <canvas id="rndInvestmentChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => chart.style.display = "none");
+            document.getElementById(chartId).style.display = "block";
+        }
+
+        new Chart(document.getElementById("defenseBudgetChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Defense Budget (Billion USD)",
+                    data: [650, 680, 700, 720, 750, 780],
+                    backgroundColor: "blue"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("militaryPersonnelChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Active Military Personnel (Millions)",
+                    data: [1.5, 1.6, 1.55, 1.57, 1.6, 1.65],
+                    borderColor: "green",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("armsTradeChart"), {
+            type: "pie",
+            data: {
+                labels: ["Imports", "Exports"],
+                datasets: [{
+                    label: "Arms Trade (Billion USD)",
+                    data: [15, 25],
+                    backgroundColor: ["red", "green"]
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("rndInvestmentChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Defense R&D Investment (Billion USD)",
+                    data: [20, 22, 25, 27, 30, 35],
+                    borderColor: "purple",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>

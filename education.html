@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Economic Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background: #575757;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            max-width: 700px;
+            max-height: 400px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a onclick="showGraph('educationExpenditureChart')">Education Expenditure</a>
+        <a onclick="showGraph('literacyRateChart')">Literacy Rate</a>
+        <a onclick="showGraph('dropoutRateChart')">Dropout Rate</a>
+        <a onclick="showGraph('educationBudgetChart')">Budget Allocation</a>
+    </div>
+
+    <div class="content">
+        <canvas id="educationExpenditureChart"></canvas>
+        <canvas id="literacyRateChart" style="display:none;"></canvas>
+        <canvas id="dropoutRateChart" style="display:none;"></canvas>
+        <canvas id="educationBudgetChart" style="display:none;"></canvas>
+    </div>
+
+    <script>
+        function showGraph(chartId) {
+            document.querySelectorAll("canvas").forEach(chart => {
+                chart.style.display = "none"; 
+            });
+            document.getElementById(chartId).style.display = "block"; 
+        }
+
+        function generateRandomData(min, max, length) {
+            return Array.from({ length }, () => (Math.random() * (max - min) + min).toFixed(2));
+        }
+
+        new Chart(document.getElementById("educationExpenditureChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Education Expenditure (% of GDP)",
+                    data: generateRandomData(3.0, 6.0, 6),
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("literacyRateChart"), {
+            type: "bar",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [{
+                    label: "Literacy Rate (%)",
+                    data: generateRandomData(60, 95, 6),
+                    backgroundColor: "green"
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("dropoutRateChart"), {
+            type: "line",
+            data: {
+                labels: ["2018", "2019", "2020", "2021", "2022", "2023"],
+                datasets: [
+                    {
+                        label: "Primary School Dropout Rate (%)",
+                        data: generateRandomData(2, 8, 6),
+                        borderColor: "red",
+                        fill: false
+                    },
+                    {
+                        label: "High School Dropout Rate (%)",
+                        data: generateRandomData(5, 15, 6),
+                        borderColor: "orange",
+                        fill: false
+                    }
+                ]
+            },
+            options: { responsive: true }
+        });
+
+        new Chart(document.getElementById("educationBudgetChart"), {
+            type: "pie",
+            data: {
+                labels: ["Schools", "Higher Education", "Vocational Training", "Research", "Others"],
+                datasets: [{
+                    label: "Budget Allocation",
+                    data: generateRandomData(10, 40, 5), 
+                    backgroundColor: ["blue", "green", "red", "yellow", "purple"]
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+
+</body>
+</html>
