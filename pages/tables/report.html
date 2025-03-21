@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Report - GDP & CPI Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; background: linear-gradient(to right, #ff9966, #ff5e62); color: white; }
+        .container { max-width: 900px; margin: auto; text-align: center; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); color: black; display: none; border: 2px solid black; }
+        .input-section { max-width: 500px; margin: auto; padding: 20px; background: white; border-radius: 10px; text-align: center; border: 2px solid black; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        th { background-color: #4CAF50; color: white; }
+        canvas { margin-top: 20px; background: white; border-radius: 10px; }
+        input, select, button { margin: 10px; padding: 8px; border-radius: 5px; border: none; }
+        button { background: #007BFF; color: white; cursor: pointer; padding: 10px 15px; font-weight: bold; }
+        button:hover { background: #0056b3; }
+        input[type="number"] {
+    width: 120px;
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+    color: black;
+}
+
+input[type="number"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 91, 187, 0.5);
+}
+
+    </style>
+</head>
+<body>
+    <div class="input-section" id="inputSection">
+        <h2>Enter Report Details</h2>
+        <label for="fromYear">From Year:</label>
+<input type="number" id="fromYear" placeholder="Enter start year" min="2000" max="2030">
+
+<label for="toYear">To Year:</label>
+<input type="number" id="toYear" placeholder="Enter end year" min="2000" max="2030">
+
+<label for="department">Select Department:</label>
+<select id="department">
+    <option value="" disabled selected>Select a department</option>
+    <option value="finance">Finance</option>
+    <option value="economics">Economics</option>
+    <option value="trade">Trade</option>
+    <option value="investment">Investment</option>
+</select>
+
+        <button onclick="generateReport()">Generate Report</button>
+    </div>
+    
+    <div class="container" id="reportContainer">
+        <h2>AI Predicted Financial Report: GDP & CPI Analysis</h2>
+        <h4>Year: <span id="yearRange"></span></h4>
+        <p><strong>Analysis by Team Finovate</strong></p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>State</th>
+                    <th>GDP (in billion INR)</th>
+                    <th>CPI</th>
+                </tr>
+            </thead>
+            <tbody id="data-table"></tbody>
+        </table>
+        
+        <canvas id="gdpChart"></canvas>
+        <canvas id="cpiChart"></canvas>
+        
+        <button onclick="downloadCSV()">Download CSV</button>
+        
+        <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <script>
+        function generateReport() {
+            document.getElementById("inputSection").style.display = "none";
+            document.getElementById("reportContainer").style.display = "block";
+            const states = ["Andhra Pradesh", "Bihar", "Delhi", "Gujarat", "Karnataka", "Maharashtra", "Rajasthan", "Tamil Nadu", "Uttar Pradesh", "West Bengal", "Odisha"];
+            
+            let fromYear = document.getElementById("fromYear").value;
+            let toYear = document.getElementById("toYear").value;
+            let department = document.getElementById("department").value;
+            document.getElementById("yearRange").innerText = `${fromYear} - ${toYear} (${department})`;
+            
+            const gdpData = states.map(() => Math.floor(Math.random() * (10000 - 2000) + 2000));
+            const cpiData = states.map(() => (Math.random() * (120 - 80) + 80).toFixed(2));
+            const colors = states.map(() => `#${Math.floor(Math.random()*16777215).toString(16)}`);
+            
+            let tableContent = "";
+            states.forEach((state, index) => {
+                tableContent += `<tr><td>${state}</td><td>${gdpData[index]}</td><td>${cpiData[index]}</td></tr>`;
+            });
+            document.getElementById("data-table").innerHTML = tableContent;
+
+            new Chart(document.getElementById("gdpChart").getContext("2d"), {
+                type: "bar",
+                data: {
+                    labels: states,
+                    datasets: [{
+                        label: "GDP (in billion INR)",
+                        data: gdpData,
+                        backgroundColor: colors
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById("cpiChart").getContext("2d"), {
+                type: "line",
+                data: {
+                    labels: states,
+                    datasets: [{
+                        label: "CPI",
+                        data: cpiData,
+                        borderColor: colors,
+                        fill: false
+                    }]
+                }
+            });
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

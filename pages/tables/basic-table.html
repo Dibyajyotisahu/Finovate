@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>finovate Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="index.html" style="font-size: 24px; font-weight: bold; text-decoration: none;  color: #fbf6f6;">Finovate</a>
+          <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="../../assets/images/faces/face15.avif" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">Username</h5>
+                  <span>Indian Citizen</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../index.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <!-- <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Basic UI Elements</span>
+              <i class="menu-arrow"></i>
+            </a> -->
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <!-- <a class="nav-link" href="../../pages/forms/basic_elements.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Form Elements</span>
+            </a> -->
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../pages/tables/basic-table.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">Tables</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../pages/charts/chartjs.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-chart-bar"></i>
+              </span>
+              <span class="menu-title">Charts</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../pages/icons/mdi.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+              </span>
+              <span class="menu-title">Financial Analy</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            <ul class="navbar-nav w-100">
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                  <input type="text" class="form-control" placeholder="Search products">
+                </form>
+              </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown d-none d-lg-block">
+                <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" href="report.html">+ Generate Report</a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
+                  <h6 class="p-3 mb-0">Projects</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-file-outline text-primary"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Software Development</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-web text-info"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">UI Development</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-layers text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all projects</p>
+                </div>
+              </li>
+              <li class="nav-item nav-settings d-none d-lg-block">
+                <a class="nav-link" href="#">
+                  <i class="mdi mdi-view-grid"></i>
+                </a>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                  <i class="mdi mdi-email"></i>
+                  <span class="count bg-success"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                  <h6 class="p-3 mb-0">Messages</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="../../assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
+                      <p class="text-muted mb-0"> 1 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="../../assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
+                      <p class="text-muted mb-0"> 15 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="../../assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                      <p class="text-muted mb-0"> 18 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">4 new messages</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="mdi mdi-bell"></i>
+                  <span class="count bg-danger"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="p-3 mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Event today</p>
+                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-link-variant text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Launch Admin</p>
+                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.avif" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Username</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Indian Finance Approval Table </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <!-- <div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Basic Table</h4>
+                    <p class="card-description"> Add class <code>.table</code>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Profile</th>
+                            <th>VatNo.</th>
+                            <th>Created</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Jacob</td>
+                            <td>53275531</td>
+                            <td>12 May 2017</td>
+                            <td><label class="badge badge-danger">Pending</label></td>
+                          </tr>
+                          <tr>
+                            <td>Messsy</td>
+                            <td>53275532</td>
+                            <td>15 May 2017</td>
+                            <td><label class="badge badge-warning">In progress</label></td>
+                          </tr>
+                          <tr>
+                            <td>John</td>
+                            <td>53275533</td>
+                            <td>14 May 2017</td>
+                            <td><label class="badge badge-info">Fixed</label></td>
+                          </tr>
+                          <tr>
+                            <td>Peter</td>
+                            <td>53275534</td>
+                            <td>16 May 2017</td>
+                            <td><label class="badge badge-success">Completed</label></td>
+                          </tr>
+                          <tr>
+                            <td>Dave</td>
+                            <td>53275535</td>
+                            <td>20 May 2017</td>
+                            <td><label class="badge badge-warning">In progress</label></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">State-wise Trade Data</h4>
+                        <p class="card-description"> Import & Export Value by Department </p>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-contextual">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>State/UT</th>
+                                        <th>Department</th>
+                                        <th>Import Value (INR Cr)</th>
+                                        <th>Export Value (INR Cr)</th>
+                                        <th>Export Percentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td> <td>Andhra Pradesh</td> <td>Agriculture & Fisheries</td> <td>4000</td> <td>6500</td> <td>62%</td></tr>
+                                    <tr><td>2</td> <td>Arunachal Pradesh</td> <td>Handicrafts & Tourism</td> <td>1200</td> <td>2500</td> <td>55%</td></tr>
+                                    <tr><td>3</td> <td>Assam</td> <td>Tea & Handloom</td> <td>1800</td> <td>4200</td> <td>70%</td></tr>
+                                    <tr><td>4</td> <td>Bihar</td> <td>Agro-based Industries</td> <td>2300</td> <td>3900</td> <td>63%</td></tr>
+                                    <tr><td>5</td> <td>Chhattisgarh</td> <td>Mining & Minerals</td> <td>2700</td> <td>5000</td> <td>65%</td></tr>
+                                    <tr><td>6</td> <td>Goa</td> <td>Tourism & Pharmaceuticals</td> <td>3200</td> <td>5600</td> <td>68%</td></tr>
+                                    <tr><td>7</td> <td>Gujarat</td> <td>Petroleum & Chemicals</td> <td>4500</td> <td>8000</td> <td>64%</td></tr>
+                                    <tr><td>8</td> <td>Haryana</td> <td>Automobile & Manufacturing</td> <td>4800</td> <td>7200</td> <td>60%</td></tr>
+                                    <tr><td>9</td> <td>Himachal Pradesh</td> <td>Horticulture & Pharma</td> <td>2600</td> <td>4800</td> <td>65%</td></tr>
+                                    <tr><td>10</td> <td>Jharkhand</td> <td>Mining & Steel</td> <td>4000</td> <td>6800</td> <td>67%</td></tr>
+                                    <tr><td>11</td> <td>Karnataka</td> <td>IT & Electronics</td> <td>3500</td> <td>6200</td> <td>62%</td></tr>
+                                    <tr><td>12</td> <td>Kerala</td> <td>Spices & Tourism</td> <td>2900</td> <td>5100</td> <td>64%</td></tr>
+                                    <tr><td>13</td> <td>Madhya Pradesh</td> <td>Agro Processing</td> <td>3000</td> <td>5300</td> <td>66%</td></tr>
+                                    <tr><td>14</td> <td>Maharashtra</td> <td>Industries</td> <td>5000</td> <td>9000</td> <td>65%</td></tr>
+                                    <tr><td>15</td> <td>Manipur</td> <td>Handlooms</td> <td>1200</td> <td>2400</td> <td>55%</td></tr>
+                                    <tr><td>16</td> <td>Meghalaya</td> <td>Agriculture & Forestry</td> <td>1800</td> <td>3200</td> <td>60%</td></tr>
+                                    <tr><td>17</td> <td>Mizoram</td> <td>Handicrafts & Bamboo</td> <td>1400</td> <td>2600</td> <td>58%</td></tr>
+                                    <tr><td>18</td> <td>Nagaland</td> <td>Agro-based & Handloom</td> <td>1300</td> <td>2500</td> <td>62%</td></tr>
+                                    <tr><td>19</td> <td>Odisha</td> <td>Mining & Metals</td> <td>4200</td> <td>7300</td> <td>66%</td></tr>
+                                    <tr><td>20</td> <td>Punjab</td> <td>Textiles & Agriculture</td> <td>3700</td> <td>6700</td> <td>64%</td></tr>
+                                    <tr><td>21</td> <td>Rajasthan</td> <td>Handicrafts & Mining</td> <td>3400</td> <td>6000</td> <td>63%</td></tr>
+                                    <tr><td>22</td> <td>Sikkim</td> <td>Organic Farming</td> <td>1100</td> <td>2300</td> <td>67%</td></tr>
+                                    <tr><td>23</td> <td>Tamil Nadu</td> <td>Textiles</td> <td>3000</td> <td>5500</td> <td>65%</td></tr>
+                                    <tr><td>24</td> <td>Telangana</td> <td>IT & Pharma</td> <td>4500</td> <td>7900</td> <td>63%</td></tr>
+                                    <tr><td>25</td> <td>Tripura</td> <td>Rubber & Bamboo</td> <td>1500</td> <td>2800</td> <td>60%</td></tr>
+                                    <tr><td>26</td> <td>Uttar Pradesh</td> <td>Handicrafts & Leather</td> <td>3800</td> <td>7000</td> <td>64%</td></tr>
+                                    <tr><td>27</td> <td>Uttarakhand</td> <td>Tourism & Pharma</td> <td>2600</td> <td>4700</td> <td>61%</td></tr>
+                                    <tr><td>28</td> <td>West Bengal</td> <td>Agriculture</td> <td>2500</td> <td>4800</td> <td>59%</td></tr>
+                                    <tr><td>29</td> <td>Andaman & Nicobar</td> <td>Fisheries & Tourism</td> <td>1000</td> <td>2200</td> <td>60%</td></tr>
+                                    <tr><td>30</td> <td>Chandigarh</td> <td>IT & Manufacturing</td> <td>2000</td> <td>3700</td> <td>63%</td></tr>
+                                    <tr><td>31</td> <td>Dadra & Nagar Haveli</td> <td>Textiles & Packaging</td> <td>1300</td> <td>2600</td> <td>55%</td></tr>
+                                    <tr><td>32</td> <td>Daman & Diu</td> <td>Tourism & Manufacturing</td> <td>1400</td> <td>2700</td> <td>56%</td></tr>
+                                    <tr><td>33</td> <td>Delhi</td> <td>IT & Services</td> <td>5000</td> <td>8500</td> <td>64%</td></tr>
+                                    <tr><td>34</td> <td>Ladakh</td> <td>Tourism & Handicrafts</td> <td>900</td> <td>1900</td> <td>58%</td></tr>
+                                    <tr><td>35</td> <td>Puducherry</td> <td>Tourism & Textiles</td> <td>2000</td> <td>3500</td> <td>60%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-lg-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Indian Finance Approval Table</h4>
+                  <!-- <p class="card-description">Add class <code>.table-{color}</code></p> -->
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-contextual">
+                      <thead>
+                        <tr>
+                          <th> # </th>
+                          <th> State </th>
+                          <th> Department </th>
+                          <th> Approval Amount </th>
+                          <th> Approval Status </th>
+                          <th> Date of Approval </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="table-info">
+                          <td> 1 </td>
+                          <td> Andhra Pradesh </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 150,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 10, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 2 </td>
+                          <td> Arunachal Pradesh </td>
+                          <td> Economic Affairs </td>
+                          <td> ₹ 120,00,000 </td>
+                          <td> Pending </td>
+                          <td> March 15, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 3 </td>
+                          <td> Assam </td>
+                          <td> Revenue Department </td>
+                          <td> ₹ 200,00,000 </td>
+                          <td> Rejected </td>
+                          <td> March 17, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 4 </td>
+                          <td> Bihar </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 100,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 20, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 5 </td>
+                          <td> Chhattisgarh </td>
+                          <td> Urban Development </td>
+                          <td> ₹ 80,00,000 </td>
+                          <td> Pending </td>
+                          <td> March 22, 2025 </td>
+                        </tr>
+                        <tr class="table-info">
+                          <td> 6 </td>
+                          <td> Goa </td>
+                          <td> Public Works Department </td>
+                          <td> ₹ 50,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 23, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 7 </td>
+                          <td> Gujarat </td>
+                          <td> Infrastructure </td>
+                          <td> ₹ 130,00,000 </td>
+                          <td> Pending </td>
+                          <td> March 24, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 8 </td>
+                          <td> Haryana </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 160,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 25, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 9 </td>
+                          <td> Himachal Pradesh </td>
+                          <td> Economic Affairs </td>
+                          <td> ₹ 90,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 27, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 10 </td>
+                          <td> Jharkhand </td>
+                          <td> Revenue Department </td>
+                          <td> ₹ 110,00,000 </td>
+                          <td> Pending </td>
+                          <td> March 29, 2025 </td>
+                        </tr>
+                        <tr class="table-info">
+                          <td> 11 </td>
+                          <td> Karnataka </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 100,00,000 </td>
+                          <td> Approved </td>
+                          <td> March 31, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 12 </td>
+                          <td> Kerala </td>
+                          <td> Urban Development </td>
+                          <td> ₹ 150,00,000 </td>
+                          <td> Pending </td>
+                          <td> April 1, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 13 </td>
+                          <td> Madhya Pradesh </td>
+                          <td> Public Works Department </td>
+                          <td> ₹ 200,00,000 </td>
+                          <td> Rejected </td>
+                          <td> April 5, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 14 </td>
+                          <td> Maharashtra </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 300,00,000 </td>
+                          <td> Approved </td>
+                          <td> April 10, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 15 </td>
+                          <td> Manipur </td>
+                          <td> Economic Affairs </td>
+                          <td> ₹ 50,00,000 </td>
+                          <td> Pending </td>
+                          <td> April 15, 2025 </td>
+                        </tr>
+                        <tr class="table-info">
+                          <td> 16 </td>
+                          <td> Meghalaya </td>
+                          <td> Revenue Department </td>
+                          <td> ₹ 90,00,000 </td>
+                          <td> Approved </td>
+                          <td> April 20, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 17 </td>
+                          <td> Mizoram </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 70,00,000 </td>
+                          <td> Pending </td>
+                          <td> April 22, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 18 </td>
+                          <td> Nagaland </td>
+                          <td> Urban Development </td>
+                          <td> ₹ 40,00,000 </td>
+                          <td> Rejected </td>
+                          <td> April 25, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 19 </td>
+                          <td> Odisha </td>
+                          <td> Public Works Department </td>
+                          <td> ₹ 100,00,000 </td>
+                          <td> Approved </td>
+                          <td> April 28, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 20 </td>
+                          <td> Punjab </td>
+                          <td> Economic Affairs </td>
+                          <td> ₹ 150,00,000 </td>
+                          <td> Pending </td>
+                          <td> May 1, 2025 </td>
+                        </tr>
+                        <tr class="table-info">
+                          <td> 21 </td>
+                          <td> Rajasthan </td>
+                          <td> Revenue Department </td>
+                          <td> ₹ 180,00,000 </td>
+                          <td> Approved </td>
+                          <td> May 5, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 22 </td>
+                          <td> Sikkim </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 50,00,000 </td>
+                          <td> Pending </td>
+                          <td> May 10, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 23 </td>
+                          <td> Tamil Nadu </td>
+                          <td> Urban Development </td>
+                          <td> ₹ 200,00,000 </td>
+                          <td> Rejected </td>
+                          <td> May 15, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 24 </td>
+                          <td> Telangana </td>
+                          <td> Public Works Department </td>
+                          <td> ₹ 150,00,000 </td>
+                          <td> Approved </td>
+                          <td> May 20, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 25 </td>
+                          <td> Tripura </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 60,00,000 </td>
+                          <td> Pending </td>
+                          <td> May 25, 2025 </td>
+                        </tr>
+                        <tr class="table-info">
+                          <td> 26 </td>
+                          <td> Uttar Pradesh </td>
+                          <td> Revenue Department </td>
+                          <td> ₹ 250,00,000 </td>
+                          <td> Approved </td>
+                          <td> June 1, 2025 </td>
+                        </tr>
+                        <tr class="table-warning">
+                          <td> 27 </td>
+                          <td> Uttarakhand </td>
+                          <td> Economic Affairs </td>
+                          <td> ₹ 90,00,000 </td>
+                          <td> Pending </td>
+                          <td> June 5, 2025 </td>
+                        </tr>
+                        <tr class="table-danger">
+                          <td> 28 </td>
+                          <td> West Bengal </td>
+                          <td> Urban Development </td>
+                          <td> ₹ 180,00,000 </td>
+                          <td> Rejected </td>
+                          <td> June 10, 2025 </td>
+                        </tr>
+                        <tr class="table-success">
+                          <td> 29 </td>
+                          <td> Jammu & Kashmir </td>
+                          <td> Finance Department </td>
+                          <td> ₹ 70,00,000 </td>
+                          <td> Approved </td>
+                          <td> June 15, 2025 </td>
+                        </tr>
+                        <tr class="table-primary">
+                          <td> 30 </td>
+                          <td> Ladakh </td>
+                          <td> Public Works Department </td>
+                          <td> ₹ 40,00,000 </td>
+                          <td> Pending </td>
+                          <td> June 20, 2025 </td>
+                        </tr>
+                        <!-- Add Union Territories here similarly -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+            </div> -->
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+  </body>
+</html>
