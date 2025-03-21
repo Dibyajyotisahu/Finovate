@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finovate Landing Page</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic Styles */
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7fc;
+        }
+
+        /* Center the landing page content */
+        .landing-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            animation: backgroundCarousel 12s ease-in-out infinite; 
+        }
+
+        /* Overlay for background image */
+        .landing-page::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+            z-index: 1;
+        }
+
+        /* Content Styling */
+        .content {
+            text-align: center;
+            z-index: 2; /* Ensures content is above the overlay */
+            color: #fff;
+            padding: 20px;
+            max-width: 80%;
+            background-color: rgba(0, 0, 0, 0.6); /* Slight background to make text legible */
+            border-radius: 15px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            /* animation: textGlow 3s ease-in-out infinite alternate; */
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: textGlow 3s ease-in-out infinite alternate 1s;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                color: #ff6347;
+            }
+            25% {
+                color: #32cd32;
+            }
+            50% {
+                color: #1e90ff;
+            }
+            75% {
+                color: #ff8c00;
+            }
+            100% {
+                color: #dda0dd;
+            }
+        }
+
+        /* Image Carousel Animation */
+        @keyframes backgroundCarousel {
+            0% {
+                background: url('https://img.freepik.com/free-vector/3d-style-black-background-with-paper-layer_206725-669.jpg') no-repeat center center/cover;
+            }
+            33% {
+                background: url('https://t3.ftcdn.net/jpg/05/66/39/78/360_F_566397830_Eyld3KDOWRcqsQUWuZmC94jiiyud2Vv1.jpg') no-repeat center center/cover;
+            }
+            66% {
+                background: url('https://t4.ftcdn.net/jpg/07/49/37/15/360_F_749371582_8OOfEFJj0OZtvR6Li1krHSKwRoYChq0X.jpg') no-repeat center center/cover;
+            }
+            100% {
+                background: url('https://www.shutterstock.com/shutterstock/videos/1064898946/thumb/5.jpg?ip=x480') no-repeat center center/cover;
+            }
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2.2rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="landing-page">
+        <div class="content">
+            <h1>Welcome to Finovate</h1>
+            <p>Your go-to platform for innovative financial solutions.</p>
+            <a href="index.html" class="btn">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling or interaction if needed in the future
+        document.querySelector('.btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+    </script>
+
+</body>
+</html>
